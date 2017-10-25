@@ -1,5 +1,5 @@
 # django-excel-storage
-A function extends of Tarken's django-excel-response
+Django Excel Storage
 
 ## Installation
 
