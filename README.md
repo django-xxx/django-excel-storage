@@ -25,7 +25,7 @@ or
             [1, 2],
             [3, 4]
         ]
-        fpath = ExcelStorage(data, 'my_data', font='name SimSum')
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum').save()
 
 
 ## Params
