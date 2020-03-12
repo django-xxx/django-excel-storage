@@ -47,7 +47,7 @@ def __init__(self, data, output_name='excel_data', format='%Y%m%d%H%M%S', header
             valid_data = True
     assert valid_data is True, 'ExcelStorage requires a sequence of sequences'
 
-    self.output = StringIO() if is_py2 else BytesIO
+    self.output = StringIO() if is_py2 else BytesIO()
     # Excel has a limit on number of rows; if we have more than that, make a csv
     use_xls = True if len(self.data) <= self.EXCEL_MAXIMUM_ALLOWED_ROWS and not self.force_csv else False
     _, file_ext = (self.as_xls, 'xls') if use_xls else (self.as_csv, 'csv')
