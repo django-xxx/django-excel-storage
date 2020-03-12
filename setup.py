@@ -15,7 +15,7 @@ setup(
     description='Django Excel Storage',
     long_description=open('README.rst').read(),
 
-    url='https://github.com/Brightcells/django-excel-storage',
+    url='https://github.com/django-xxx/django-excel-storage',
 
     author='Hackathon',
     author_email='kimi.huang@brightcells.com',
