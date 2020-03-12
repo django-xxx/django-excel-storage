@@ -21,7 +21,7 @@ setup(
     author_email='kimi.huang@brightcells.com',
 
     py_modules=['excel_storage'],
-    install_requires=['xlwt', 'pytz', 'screen', 'django-six>=1.0.4'],
+    install_requires=['xlwt', 'pytz', 'screen', 'django-excel-base', 'django-six>=1.0.4'],
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
