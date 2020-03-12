@@ -15,7 +15,7 @@ Usage
 
 ::
 
-    from excel_storage import ExcelStorage
+    from django_excel_storage import ExcelStorage
 
     def excelfunc():
         objs = SomeModel.objects.all()
@@ -24,7 +24,7 @@ Usage
 
 or::
 
-    from excel_storage import ExcelStorage
+    from django_excel_storage import ExcelStorage
 
     def excelfunc():
         data = [
