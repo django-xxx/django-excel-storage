@@ -82,6 +82,7 @@ clsdict = {
     'EXCEL_MAXIMUM_ALLOWED_COLUMN_WIDTH': EXCEL_MAXIMUM_ALLOWED_COLUMN_WIDTH,
     '__init__': __init__,
     'as_xls': as_xls,
+    'as_row_merge_xls': as_row_merge_xls,
     'as_csv': as_csv,
     'save': save,
 }
