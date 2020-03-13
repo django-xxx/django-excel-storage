@@ -35,6 +35,19 @@ or::
         fpath = ExcelStorage(data, 'my_data', font='name SimSum').save()
 
 
+or::
+
+    from django_excel_storage import ExcelStorage
+
+    def excelfunc():
+        data = [
+            ['Column 1', 'Column 2'],
+            [1, [2, 3]],
+            [3, 4]
+        ]
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum', row_merge=True).save()
+
+
 Params
 ======
 
