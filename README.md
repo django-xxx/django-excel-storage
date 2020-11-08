@@ -13,6 +13,24 @@ Django Excel Storage
     def excelfunc():
         objs = SomeModel.objects.all()
         fpath = ExcelStorage(data).save()
+        
+        
+or
+
+    from django_excel_storage import ExcelStorage
+
+    def excelfunc():
+        data = [
+            {
+                'Column 1': 1,
+                'Column 2': 2,
+            },
+            {
+                'Column 1': 3,
+                'Column 2': 4,
+            }
+        ]
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum').save()
 
 
 or
