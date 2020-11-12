@@ -68,7 +68,7 @@ def __init__(self, data, output_name='excel_data', format='%Y%m%d%H%M%S', header
 
 def save(self):
     file_name_ext = '_{0}'.format(datetime.datetime.now().strftime(self.format)) if self.format else ''
-    file_path = '%s.%s' % ('{0}{1}'.format(self.output_name, file_name_ext).replace('"', '\"'), self.file_ext)
+    file_path = ('%s%s.%s' % (self.output_name, file_name_ext, self.file_ext)).replace('"', '\"')
 
     if default_storage.exists(file_path):
         default_storage.delete(file_path)
