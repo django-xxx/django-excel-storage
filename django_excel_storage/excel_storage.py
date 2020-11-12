@@ -68,13 +68,13 @@ def __init__(self, data, output_name='excel_data', format='%Y%m%d%H%M%S', header
 
 def save(self):
     file_name_ext = '_{0}'.format(datetime.datetime.now().strftime(self.format)) if self.format else ''
-    file_path = ('%s%s.%s' % (self.output_name, file_name_ext, self.file_ext)).replace('"', '\"')
+    final_file_name = ('%s%s.%s' % (self.output_name, file_name_ext, self.file_ext)).replace('"', '\"')
 
-    if default_storage.exists(file_path):
-        default_storage.delete(file_path)
-    default_storage.save(file_path, self.output)
+    if default_storage.exists(final_file_name):
+        default_storage.delete(final_file_name)
+    default_storage.save(final_file_name, self.output)
 
-    return file_path
+    return final_file_name
 
 
 clsdict = {
