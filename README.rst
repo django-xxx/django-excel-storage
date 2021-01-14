@@ -19,7 +19,7 @@ Usage
 
     def excelfunc():
         objs = SomeModel.objects.all()
-        fpath = ExcelStorage(data).save()
+        fpath = ExcelStorage(objs).save()
 
 
 or::
