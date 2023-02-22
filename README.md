@@ -59,6 +59,71 @@ or
         fpath = ExcelStorage(data, 'my_data', font='name SimSum', row_merge=True).save()
 
 
+or
+
+    from django_excel_storage import ExcelStorage
+
+    def excelfunc():
+        headers = ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5']
+        data = [['Value 1', [['Value 2 Row 1', [['Value 3', 'Value 4', [['Value 5']]]]], ['Value 2 Row 2', [['Value 3 Row 1', 'Value 4 Row 1', [['Value 5 Row 1']]], ['Value 3 Row 2', 'Value 4 Row 2', [['Value 5 Row 2']]]]]]]]
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum', list_row_merge=True, headers=self.headers)
+
+
+or
+
+    from django_excel_storage import ExcelStorage
+
+    def excelfunc():
+        headers = ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5']
+        mapping = {
+            'field_key': 'Column 1',
+            'data_key': 'Children 1',
+            'next': {
+                'field_key': 'Column 2',
+                'data_key': 'Children 2',
+                'next': {
+                    'field_key': ['Column 3', 'Column 4'],
+                    'data_key': 'Children 3',
+                    'next': {
+                        'field_key': 'Column 5',
+                    }
+                }
+            }
+        }
+        data = [{
+            'Column 1': 'Value 1',
+            'Column 11': 'Value 11',
+            'Children 1': [{
+                'Column 2': 'Value 2 Row 1',
+                'Column 22': 'Value 22 Row 1',
+                'Children 2': [{
+                    'Column 3': 'Value 3',
+                    'Column 4': 'Value 4',
+                    'Children 3': {
+                        'Column 5': 'Value 5',
+                    }
+                }]
+            }, {
+                'Column 2': 'Value 2 Row 2',
+                'Column 22': 'Value 22 Row 2',
+                'Children 2': [{
+                    'Column 3': 'Value 3 Row 1',
+                    'Column 4': 'Value 4 Row 1',
+                    'Children 3': {
+                        'Column 5': 'Value 5 Row 1',
+                    }
+                }, {
+                    'Column 3': 'Value 3 Row 2',
+                    'Column 4': 'Value 4 Row 2',
+                    'Children 3': {
+                        'Column 5': 'Value 5 Row 2',
+                    }
+                }]
+            }]
+        }]
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum', dict_row_merge=True, mapping=self.mapping, headers=self.headers)
+
+
 ## Params
 
   * font='name SimSum'
