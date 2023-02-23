@@ -56,7 +56,7 @@ or
             [1, [2, 3]],
             [3, 4]
         ]
-        fpath = ExcelStorage(data, 'my_data', font='name SimSum', row_merge=True).save()
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum', merge_type='row_merge').save()
 
 
 or
@@ -66,7 +66,7 @@ or
     def excelfunc():
         headers = ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5']
         data = [['Value 1', [['Value 2 Row 1', [['Value 3', 'Value 4', [['Value 5']]]]], ['Value 2 Row 2', [['Value 3 Row 1', 'Value 4 Row 1', [['Value 5 Row 1']]], ['Value 3 Row 2', 'Value 4 Row 2', [['Value 5 Row 2']]]]]]]]
-        fpath = ExcelStorage(data, 'my_data', font='name SimSum', list_row_merge=True, headers=headers)
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum', merge_type='list_row_merge', headers=headers)
 
 
 or
@@ -121,7 +121,7 @@ or
                 }]
             }]
         }]
-        fpath = ExcelStorage(data, 'my_data', font='name SimSum', dict_row_merge=True, mapping=mapping, headers=headers)
+        fpath = ExcelStorage(data, 'my_data', font='name SimSum', merge_type='dict_row_merge', mapping=mapping, headers=headers)
 
 
 ## Params

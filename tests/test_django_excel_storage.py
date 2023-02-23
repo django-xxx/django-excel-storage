@@ -31,8 +31,8 @@ class TestDjangoExcelStorageCommands(object):
         self.sheet_name2 = 'Sheet Name 2'
         self.sheet_name3 = 'Sheet Name 3'
 
-        self.sheet_data1 = {'Sheet Name 1': [['Column 1', 'Column 2'], [1, 2], [3, 4]]}
-        self.sheet_data2 = {'Sheet Name 1': [['Column 1', 'Column 2'], [1, [2, 3]], [3, 4]]}
+        self.sheet_data1 = {'Sheet Name 1': {'data': [['Column 1', 'Column 2'], [1, 2], [3, 4]]}}
+        self.sheet_data2 = {'Sheet Name 1': {'data': [['Column 1', 'Column 2'], [1, [2, 3]], [3, 4]]}}
 
         self.headers = ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5']
         self.mapping = {
@@ -104,62 +104,62 @@ class TestDjangoExcelStorageCommands(object):
         # assert isinstance(xls3, ExcelStorage)
 
         xls11 = ExcelStorage({
-            self.sheet_name1: self.data1,
+            self.sheet_name1: {'data': self.data1},
         }, 'my_data', font='name SimSum')
         assert isinstance(xls11, ExcelStorage)
 
         xls22 = ExcelStorage({
-            self.sheet_name2: self.data2,
+            self.sheet_name2: {'data': self.data2},
         }, 'my_data', font='name SimSum')
         assert isinstance(xls22, ExcelStorage)
 
     def test_as_row_merge_xls(self):
-        xls1 = ExcelStorage(self.data1, 'my_data', font='name SimSum', row_merge=True)
+        xls1 = ExcelStorage(self.data1, 'my_data', font='name SimSum', merge_type='row_merge')
         assert isinstance(xls1, ExcelStorage)
 
-        xls2 = ExcelStorage(self.data2, 'my_data', font='name SimSum', row_merge=True)
+        xls2 = ExcelStorage(self.data2, 'my_data', font='name SimSum', merge_type='row_merge')
         assert isinstance(xls2, ExcelStorage)
 
-        xls3 = ExcelStorage(self.data3, 'my_data', font='name SimSum', row_merge=True)
+        xls3 = ExcelStorage(self.data3, 'my_data', font='name SimSum', merge_type='row_merge')
         assert isinstance(xls3, ExcelStorage)
 
         xls11 = ExcelStorage({
-            self.sheet_name1: self.data1,
-        }, 'my_data', font='name SimSum', row_merge=True)
+            self.sheet_name1: {'data': self.data1},
+        }, 'my_data', font='name SimSum', merge_type='row_merge')
         assert isinstance(xls11, ExcelStorage)
 
         xls22 = ExcelStorage({
-            self.sheet_name2: self.data2,
-        }, 'my_data', font='name SimSum', row_merge=True)
+            self.sheet_name2: {'data': self.data2},
+        }, 'my_data', font='name SimSum', merge_type='row_merge')
         assert isinstance(xls22, ExcelStorage)
 
         xls33 = ExcelStorage({
-            self.sheet_name3: self.data3,
-        }, 'my_data', font='name SimSum', row_merge=True)
+            self.sheet_name3: {'data': self.data3},
+        }, 'my_data', font='name SimSum', merge_type='row_merge')
         assert isinstance(xls33, ExcelStorage)
 
     def test_as_list_row_merge_xls(self):
-        xls1 = ExcelStorage(self.preprocesseddata, 'my_data', font='name SimSum', list_row_merge=True)
+        xls1 = ExcelStorage(self.preprocesseddata, 'my_data', font='name SimSum', merge_type='list_row_merge')
         assert isinstance(xls1, ExcelStorage)
 
-        xls2 = ExcelStorage(self.preprocesseddata, 'my_data', font='name SimSum', list_row_merge=True, headers=self.headers)
+        xls2 = ExcelStorage(self.preprocesseddata, 'my_data', font='name SimSum', merge_type='list_row_merge', headers=self.headers)
         assert isinstance(xls2, ExcelStorage)
 
         xls11 = ExcelStorage({
-            self.sheet_name1: self.preprocesseddata,
-        }, 'my_data', font='name SimSum', list_row_merge=True)
+            self.sheet_name1: {'data': self.preprocesseddata},
+        }, 'my_data', font='name SimSum', merge_type='list_row_merge')
         assert isinstance(xls11, ExcelStorage)
 
         xls22 = ExcelStorage({
-            self.sheet_name2: self.preprocesseddata,
-        }, 'my_data', font='name SimSum', list_row_merge=True, headers=self.headers)
+            self.sheet_name2: {'data': self.preprocesseddata},
+        }, 'my_data', font='name SimSum', merge_type='list_row_merge', headers=self.headers)
         assert isinstance(xls22, ExcelStorage)
 
     def test_as_dict_row_merge_xls(self):
-        xls1 = ExcelStorage(self.rawdata, 'my_data', font='name SimSum', dict_row_merge=True, mapping=self.mapping)
+        xls1 = ExcelStorage(self.rawdata, 'my_data', font='name SimSum', merge_type='dict_row_merge', mapping=self.mapping)
         assert isinstance(xls1, ExcelStorage)
 
-        xls2 = ExcelStorage(self.rawdata, 'my_data', font='name SimSum', dict_row_merge=True, mapping=self.mapping, headers=self.headers)
+        xls2 = ExcelStorage(self.rawdata, 'my_data', font='name SimSum', merge_type='dict_row_merge', mapping=self.mapping, headers=self.headers)
         assert isinstance(xls2, ExcelStorage)
 
         xls11 = ExcelStorage({
@@ -168,7 +168,7 @@ class TestDjangoExcelStorageCommands(object):
                 'mapping': self.mapping,
                 'headers': self.headers,
             },
-        }, 'my_data', font='name SimSum', dict_row_merge=True)
+        }, 'my_data', font='name SimSum', merge_type='dict_row_merge')
         assert isinstance(xls11, ExcelStorage)
 
         xls22 = ExcelStorage({
@@ -177,5 +177,5 @@ class TestDjangoExcelStorageCommands(object):
                 'mapping': self.mapping,
                 'headers': self.headers,
             },
-        }, 'my_data', font='name SimSum', dict_row_merge=True, headers=self.headers)
+        }, 'my_data', font='name SimSum', merge_type='dict_row_merge', headers=self.headers)
         assert isinstance(xls22, ExcelStorage)
