@@ -5,9 +5,9 @@ import datetime
 from django.conf import settings
 from django.core.files.storage import default_storage
 from django.db.models.query import QuerySet
-from django_excel_base import (BytesIO, StringIO, as_csv, as_dict_row_merge_xls, as_list_row_merge_xls,
-                               as_row_merge_xls, as_xls, is_py2, use_xls_or_not)
 from django_six import Support_ValuesQuerySet, ValuesQuerySet
+from excel_base import (BytesIO, StringIO, as_csv, as_dict_row_merge_xls, as_list_row_merge_xls, as_row_merge_xls,
+                        as_xls, is_py2, use_xls_or_not)
 
 
 # Min (Max. Rows) for Widely Used Excel
